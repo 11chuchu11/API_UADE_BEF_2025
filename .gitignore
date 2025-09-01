@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# dependencias
+node_modules
+
+# outputs de build
+build
+dist
+.vite
+.react-router
