@@ -1,4 +1,5 @@
-// src/root.tsx
+import '@/styles/app.css'
+
 import * as React from 'react'
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 
