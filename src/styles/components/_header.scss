@@ -1,0 +1,67 @@
+@use '../_common.scss' as common;
+@use 'sass:map';
+
+.header,
+.header-Scroll {
+    transition: background-color 0.8s, color 0.8s;
+}
+
+.header-Scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    background-color: common.$brand-green;
+    color: white;
+    padding: 1rem 5rem;
+
+    .nav-link {
+        font-family: map.get(common.$font-primary, font-family);
+        color: common.$brand-beige;
+        transition: color 0.5s;
+
+        &:hover {
+            color: common.$brand-green-light-02;
+        }
+    }
+}
+
+.header {
+    background-color: common.$brand-green-light;
+    color: white;
+    padding: 1rem 5rem;
+
+    h1 {
+        color: common.$brand-green;
+    }
+
+    .nav-link {
+        font-family: map.get(common.$font-primary, font-family);
+        color: common.$brand-green;
+        transition: color 0.5s;
+
+        &:hover {
+            color: common.$brand-green-hover;
+        }
+    }
+    
+}
+
+
+
+.btn-login {
+    background-color: common.$brand-beige;
+    color: common.$brand-green;
+    border-color: common.$brand-green;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    transition: background-color 0.3s;
+    
+    &:hover {
+        background-color: common.$brand-green;
+        border: 1px solid common.$brand-beige;
+        color: common.$brand-beige;
+    }
+}

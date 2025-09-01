@@ -1,0 +1,8 @@
+@use '../_common.scss' as common;
+@use 'sass:map';
+
+body {
+  font-family: map.get(common.$font-primary, font-family);
+  font-weight: map.get(common.$font-primary, font-weight);
+  font-style: map.get(common.$font-primary, font-style);
+}

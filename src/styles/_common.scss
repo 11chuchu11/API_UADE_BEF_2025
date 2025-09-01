@@ -1,0 +1,26 @@
+// Base Colors
+$brand-green: #00856F; // Primary brand color
+$brand-green-light: #DCE9E2; // Secondary brand color
+$brand-green-light-02: #F7F9F9; // Accent color
+$brand-beige: #FFFAF1; // Neutral color
+$brand-green-hover: #00453A;
+
+// Secondary Colors
+
+$gray-headline: #061800;
+$gray-paragraph: #384633;
+$white: #3E3E3E;
+
+// Typography
+$font-primary: (
+  font-family: "DM Sans", sans-serif
+  font-optical-sizing: auto,
+  font-weight: 400,
+  font-style: normal
+);
+$font-secondary: (
+  font-family: "DM Sans", sans-serif
+  font-optical-sizing: auto,
+  font-weight: 700,
+  font-style: normal
+);
