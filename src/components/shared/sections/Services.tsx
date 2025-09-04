@@ -12,8 +12,8 @@ export function Services() {
 
     return (
         <section className="bg-background/60">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py-24">
-                <p className="text-center max-w-7xl px-6 lg:px-8 py-16 lg:py-24">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py">
+                <p className="text-center max-w-7xl px-6 lg:px-8 py-11 lg:py">
                     Servicios
                 </p>
                 <h2 className="mt-3 text-center text-3xl font-extrabold leading-tight text-slate-900 md:text-4xl">
