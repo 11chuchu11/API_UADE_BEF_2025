@@ -1,14 +1,8 @@
 
-import { HeroDoctor } from "../../components/shared/banners/HeroDoctor"
-import { StatsBar } from "../../components/data-display/stats/StatsBar"
 import { Services } from "../../components/shared/sections/Services"
 export default function Prueba() {
   return (
     <>
-      <HeroDoctor />
-      <section className="relative z-20 mx-auto max-w-7xl px-6 lg:px-8 -mt-14 lg:-mt-20 mb-12">
-        <StatsBar />
-      </section>
       <Services/>
       <div className="min-h-screen bg-[#FFFAF1]">
         <div className="pt-32 px-20">
