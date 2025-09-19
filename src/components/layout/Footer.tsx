@@ -1,12 +1,12 @@
 import React from 'react'
 import { FiInstagram, FiFacebook, FiYoutube } from 'react-icons/fi'
-import { Button } from '../ui/buttons/button'
+import { Button } from '../ui/button'
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#00856F] text-[#FFFAF1] px-20 py-8 md:py-10">
+    <footer className="bg-primary text-background px-20 py-8 md:py-10">
       <div className="max-w-[95rem] mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0">
           <div className="space-y-1">
@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           <div className="flex gap-4">
             <Button
               asChild
-              className="rounded-full px-0 w-10 h-10 border border-[#FFFAF1] text-[#FFFAF1] bg-transparent transition-all duration-200 hover:bg-[#DCE9E2] hover:text-[#00856F] hover:border-[#00856F] transform hover:-translate-y-0.5"
+              className="rounded-full px-0 w-10 h-10 border border-background text-background bg-transparent transition-all duration-200 hover:bg-secondary hover:text-primary hover:border-primary transform hover:-translate-y-0.5"
               variant="ghost"
               size="icon"
             >
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
 
             <Button
               asChild
-              className="rounded-full px-0 w-10 h-10 border border-[#FFFAF1] text-[#FFFAF1] bg-transparent transition-all duration-200 hover:bg-[#DCE9E2] hover:text-[#00856F] hover:border-[#00856F] transform hover:-translate-y-0.5"
+              className="rounded-full px-0 w-10 h-10 border border-background text-background bg-transparent transition-all duration-200 hover:bg-secondary hover:text-primary hover:border-primary transform hover:-translate-y-0.5"
               variant="ghost"
               size="icon"
             >
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
 
             <Button
               asChild
-              className="rounded-full px-0 w-10 h-10 border border-[#FFFAF1] text-[#FFFAF1] bg-transparent transition-all duration-200 hover:bg-[#DCE9E2] hover:text-[#00856F] hover:border-[#00856F] transform hover:-translate-y-0.5"
+              className="rounded-full px-0 w-10 h-10 border border-background text-backgroundbg-transparent transition-all duration-200 hover:bg-secondary hover:text-primary hover:border-primary transform hover:-translate-y-0.5"
               variant="ghost"
               size="icon"
             >
