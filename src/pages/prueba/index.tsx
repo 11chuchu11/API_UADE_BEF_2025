@@ -1,9 +1,15 @@
 import { Header } from "../../components/layout/Header"
 import { Footer } from "../../components/layout/Footer"
+import { HeroDoctor } from "../../components/shared/banners/HeroDoctor"
+import { StatsBar } from "../../components/data-display/stats/StatsBar"
 export default function Prueba() {
   return (
     <>
       <Header />
+      <HeroDoctor />
+      <section className="relative z-20 mx-auto max-w-7xl px-6 lg:px-8 -mt-14 lg:-mt-20 mb-12">
+        <StatsBar />
+      </section>
       <div className="min-h-screen bg-[#FFFAF1]">
         <div className="pt-32 px-20">
           <h1 className="text-6xl font-bold text-[#00856F] mb-8">Prueba</h1>
