@@ -1,7 +1,7 @@
 import { Header } from "../../components/layout/Header"
 import { Footer } from "../../components/layout/Footer"
-import { HeroDoctor } from "../../components/shared/banners/HeroDoctor"
-import { StatsBar } from "../../components/data-display/stats/StatsBar"
+import { HeroDoctor } from "../../components/Home/Hero"
+import { StatsBar } from "../../components/Home/Hero/StatsBar"
 export default function Prueba() {
   return (
     <>
