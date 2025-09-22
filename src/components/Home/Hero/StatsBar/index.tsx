@@ -4,7 +4,7 @@ export function StatsBar() {
   const texts = getTexts();
   const sb = texts.statsbar; // es un objeto, no un array
   return (
-      <div className="mx-auto w-full max-w-5xl rounded-xl bg-orange-50 ring-1 ring-emerald-100 shadow-sm">
+      <div className="mx-auto w-full max-w-5xl rounded-xl bg-orange-50 ring-1 ring-emerald-100 shadow-sm mb-15">
         <div className="grid grid-cols-1 md:grid-cols-3">
           {/* 1 */}
           <div className="flex flex-col items-center justify-center py-8 px-6">
