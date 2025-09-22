@@ -1,8 +1,10 @@
-//Components
-import { MapPin, Mail } from 'lucide-react'
-import { ActionButton } from '../../ui/buttons/ActionButton'
-import { getTexts } from '../text'
-import { FaWhatsapp } from 'react-icons/fa'
+// Components
+import { MapPin, Mail } from "lucide-react"
+import { ActionButton } from "@components/ui/buttons/ActionButton";
+import { FaWhatsapp } from "react-icons/fa";
+
+// Texts
+import { getTexts } from "../text";
 
 export function ContactDoctor({ photoSrc, className }: { photoSrc?: string; className?: string }) {
 	const texts = getTexts()

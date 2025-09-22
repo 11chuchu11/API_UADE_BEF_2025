@@ -1,7 +1,9 @@
-import {} from "lucide-react";
+// Components
 import { CheckCircle2 } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardContent } from "../../../ui/card";
-import { cn } from "../../../../lib/utils";
+import { Card, CardHeader, CardTitle, CardContent } from "@components/ui/card";
+
+// Utils
+import { cn } from "@/lib/utils";
 
 
 type Props = {

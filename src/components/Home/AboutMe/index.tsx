@@ -1,3 +1,4 @@
+// Texts
 import { getTexts } from '../text'
 
 type AboutDoctorProps = {

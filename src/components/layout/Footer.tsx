@@ -1,6 +1,11 @@
 import React from 'react'
+
+// Components
 import { FiInstagram, FiFacebook, FiYoutube } from 'react-icons/fi'
-import { Button } from '../ui/button'
+
+import { Button } from '@components/ui/button'
+
+// Texts
 import { getTexts } from '../Home/text'
 
 const Footer: React.FC = () => {
