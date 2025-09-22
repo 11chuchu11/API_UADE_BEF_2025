@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Button } from '../ui/button'
-import { cn } from '../../lib/utils'
-import { getTexts } from '../Home/text'
+import React, { useEffect, useState } from 'react';
+import { Button } from '../ui/button';
+import { cn } from '../../lib/utils';
+import { getTexts } from '../text';
+import { Link } from 'react-router';
+
 
 const Header: React.FC = () => {
 	const texts = getTexts()
@@ -79,20 +81,21 @@ const Header: React.FC = () => {
 						{texts.header.navbar.link_4}
 					</a>
 				</nav>
-
-				{/* Botón Login */}
-				<Button
-					className={cn(
-						'rounded-full uppercase px-4 py-2 transition-all duration-500 ease-in-out border',
-						scrolled
-							? 'bg-primary text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary hover:border-primary'
-							: 'bg-primary-foreground text-primary border-primary hover:bg-primary hover:text-primary-foreground hover:border-primary-foreground'
-					)}>
-					{texts.header.text_login}
-				</Button>
-			</div>
-		</header>
-	)
-}
-
-export { Header }
+                {/* Botón Login */}
+                <Button asChild
+                    className={cn(
+                        "rounded-full uppercase px-4 py-2 transition-all duration-500 ease-in-out border",
+                        scrolled
+                            ? "bg-primary text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary hover:border-primary"
+                            : "bg-primary-foreground text-primary border-primary hover:bg-primary hover:text-primary-foreground hover:border-primary-foreground"
+                    )}
+                >
+                    <Link to="/admin">
+                        {texts.header.text_login}
+                    </Link>
+                </Button>
+            </div>
+        </header>
+    );
+};
+export { Header }; 
