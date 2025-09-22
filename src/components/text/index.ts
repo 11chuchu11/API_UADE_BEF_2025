@@ -38,5 +38,23 @@ export const getTexts = () => ({
             value: "+10",
             label: "Años de Experiencia",
         },
-    }
+    },
+    about: {
+        sectionLabel: "Sobre mí",
+        headingPrefix: "Conozca a",
+        headingSuffix: "y su misión como Doctor",
+        paragraphs: [
+            (name: string, surname: string) =>
+                `El Dr. ${name} ${surname} es médico formado en la Universidad de Buenos Aires UBA,
+            especialista en Pediatría y Medicina Familiar, dedicado a brindar
+            atención integral, cercana y humana a cada paciente.`,
+            () =>
+                `Su propósito es acompañar a las personas en todas las etapas de la vida,
+            ofreciendo prevención, diagnóstico y tratamientos adaptados a cada necesidad.`,
+            () =>
+                `Con años de experiencia en medicina comunitaria, busca mejorar la calidad
+            de vida de las familias mediante un cuidado personalizado y accesible.
+            La escucha activa, el respeto y la empatía son pilares de su atención.`,
+        ],
+    },
 })
