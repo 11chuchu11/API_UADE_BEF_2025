@@ -13,8 +13,8 @@ export function HeroDoctor({
 }: Props) {
   const texts = getTexts();
   return (
-    <section className="relative overflow-hidden bg-secondary pb-12 lg:pb-16">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-secondary pt-6 pb-12 lg:pb-16">
+      <div className="mx-auto mt-12 mb-10 max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center py-16 lg:py-24">
           {/* Texto */}
           <div>
@@ -29,14 +29,14 @@ export function HeroDoctor({
               <span className="text-primary">{doctorSurname.toUpperCase()}</span>
             </h1>
 
-            <p className="mt-5 text-slate-700 text-base md:text-lg max-w-prose">
+            <p className="mt-5 text-foreground text-base md:text-lg max-w-prose">
               Doctor <span className="font-medium text-primary">{doctorName}{doctorSurname}</span> {texts.hero.intro_1}{" "}
               <span className="font-semibold">{texts.hero.dr_speciality}</span> y{" "}
               <span className="font-semibold">{texts.hero.dr_speciality2}</span>{texts.hero.intro_3}{" "}
               <span className="font-semibold">{texts.hero.intro_4}</span> {texts.hero.intro_5}
             </p>
 
-            <p className="mt-5 text-slate-700">{texts.hero.reservation_text}</p>
+            <p className="mt-5 text-foreground">{texts.hero.reservation_text}</p>
 
             <div className="mt-6">
               <ActionButton>

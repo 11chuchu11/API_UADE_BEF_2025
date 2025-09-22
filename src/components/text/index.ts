@@ -66,6 +66,43 @@ export const getTexts = () => ({
         email: "info@doctordanieldiaz.com.ar",
         buttonLabel: "Escriba sus consultas",
         altDoctor: "Imagen del doctor",
-      }
-      
+    },
+    services: {
+        sectionLabel: "Servicios",
+        headingLine1: "¿Cómo podemos ayudarte",
+        headingLine2: "a",
+        headingHighlight: "sentirse mejor",
+        items: [
+            {
+                title: "Atención médica",
+                description:
+                    "Ofrezco cuidados preventivos, seguimiento de enfermedades crónicas y orientación personalizada para cada miembro de su hogar.",
+            },
+            {
+                title: "Atención cercana",
+                description:
+                    "Reserve fácilmente y acceda a un servicio de confianza, enfocado en su bienestar y el de sus seres.",
+            },
+            {
+                title: "Cuidamos tu Familia",
+                description:
+                    "Experiencia en diagnóstico temprano, control de salud y tratamientos adaptados a cada etapa de la vida.",
+            },
+            {
+                title: "Prevención",
+                description:
+                    "Evaluaciones médicas completas, chequeos periódicos y planes de prevención diseñados para mantener su salud estable.",
+            },
+            {
+                title: "Profesionalismo",
+                description:
+                    "Un espacio pensado para brindar atención médica humana, cercana y con la mejor calidad en cada visita.",
+            },
+            {
+                title: "Bienestar físico y mental",
+                description:
+                    "Orientación integral en hábitos saludables, manejo del estrés y cuidado de la salud mental.",
+            },
+        ],
+    },
 })

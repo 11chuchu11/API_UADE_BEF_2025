@@ -43,13 +43,13 @@ export function AboutMe({
                         {texts.about.sectionLabel}
                     </p>
 
-                    <h2 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-gray-950">
+                    <h2 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-foreground">
                         {texts.about.headingPrefix}{" "}
                         <span className="text-primary">{name} {surname}</span>{" "}
                         {texts.about.headingSuffix}
                     </h2>
 
-                    <div className="mt-6 space-y-6 text-gray-800 md:text-base leading-relaxed">
+                    <div className="mt-6 space-y-6 text-foreground md:text-base leading-relaxed">
                         {texts.about.paragraphs.map((p, idx) => (
                             <p key={idx}>{p(name, surname)}</p>
                         ))}
