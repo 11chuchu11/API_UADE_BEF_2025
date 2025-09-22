@@ -3,6 +3,7 @@ import { Footer } from "../../components/layout/Footer"
 import { HeroDoctor } from "../../components/Home/Hero"
 import { StatsBar } from "../../components/Home/Hero/StatsBar"
 import { AboutMe } from "../../components/Home/AboutMe"
+import { ContactDoctor } from "../../components/Home/Contact"
 export default function Prueba() {
   return (
     <>
@@ -34,6 +35,7 @@ export default function Prueba() {
         </div>
       </div>
       <AboutMe/>
+      <ContactDoctor/>
       <Footer />
     </>
   )
