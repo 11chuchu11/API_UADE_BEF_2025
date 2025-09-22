@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 // texts
 import { getTexts } from '../text';
-
+import { Link } from 'react-router';
 const Header: React.FC = () => {
 
     const texts = getTexts();
@@ -90,7 +90,7 @@ const Header: React.FC = () => {
                 </nav>
 
                 {/* Botón Login */}
-                <Button
+                <Button asChild
                     className={cn(
                         "rounded-full uppercase px-4 py-2 transition-all duration-500 ease-in-out border",
                         scrolled
@@ -98,7 +98,9 @@ const Header: React.FC = () => {
                             : "bg-primary-foreground text-primary border-primary hover:bg-primary hover:text-primary-foreground hover:border-primary-foreground"
                     )}
                 >
-                    {texts.header.text_login}
+                    <Link to="/admin">
+                        {texts.header.text_login}
+                    </Link>
                 </Button>
             </div>
         </header>
