@@ -12,6 +12,9 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)), // alias @ → src
+      "@components": fileURLToPath(new URL("./src/components", import.meta.url)), // alias @components → src/components
+      "@hooks": fileURLToPath(new URL("./src/hooks", import.meta.url)), // alias @hooks → src/hooks
+      "@utils": fileURLToPath(new URL("./src/utils", import.meta.url)), // alias @utils → src/utils
     },
   },
   build: {

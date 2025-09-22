@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Button } from "../buttons/button";
-import { cn } from "../../../lib/utils";
+import { Button } from "@components/ui/buttons/button";
+import { cn } from "@/lib/utils";
 
 type Props = {
   children: React.ReactNode;   

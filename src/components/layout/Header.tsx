@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from '../ui/button';
-import { cn } from '../../lib/utils';
+
+// Components
+import { Button } from '@components/ui/button';
+
+// Utils
+import { cn } from '@/lib/utils';
+
+// texts
 import { getTexts } from '../text';
 
 const Header: React.FC = () => {

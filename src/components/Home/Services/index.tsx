@@ -1,4 +1,7 @@
+// Components
 import { ServiceCard } from "./sharedCards";
+
+// Utils
 import { getTexts } from "../../text";
 
 export function Services() {
