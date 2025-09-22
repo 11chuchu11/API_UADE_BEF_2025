@@ -1,8 +1,11 @@
 import React from 'react'
 import { FiInstagram, FiFacebook, FiYoutube } from 'react-icons/fi'
 import { Button } from '../ui/button'
+import { getTexts } from '../text'
 
 const Footer: React.FC = () => {
+
+  const texts = getTexts();
   const currentYear = new Date().getFullYear()
 
   return (
@@ -10,9 +13,9 @@ const Footer: React.FC = () => {
       <div className="max-w-[95rem] mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0">
           <div className="space-y-1">
-            <h2 className="font-bold text-xl">Dr Daniel Diaz</h2>
-            <p className="text-sm opacity-90">©{currentYear} – Sur Studio Website.</p>
-            <p className="text-sm opacity-90">Todos los derechos reservados.</p>
+            <h2 className="font-bold text-xl">{texts.footer.text_name_doctor}</h2>
+            <p className="text-sm opacity-90">{texts.footer.text_dev_signature(currentYear)}</p>
+            <p className="text-sm opacity-90">{texts.footer.copyright}</p>
           </div>
 
           <div className="flex-1" />
