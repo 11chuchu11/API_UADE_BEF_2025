@@ -1,7 +1,8 @@
 import '@/styles/app.css'
 
 import * as React from 'react'
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
+import { Links, Meta, Scripts, ScrollRestoration } from 'react-router'
+import AppLayout from './components/layout/AppLayout'
 
 export function Layout({ children }: { children: React.ReactNode }) {
 	return (
@@ -22,6 +23,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function Root() {
-	return <Outlet />
+	return <AppLayout />
 }
 
