@@ -1,8 +1,8 @@
 // Components
-import { ActionButton } from '@components/ui/buttons/ActionButton'
+import { ActionButton } from "@components/ui/buttons/ActionButton";
 
 // Texts
-import { getTexts } from '../text'
+import { getTexts } from "../text";
 type Props = {
 	doctorName?: string
 	doctorSurname?: string
