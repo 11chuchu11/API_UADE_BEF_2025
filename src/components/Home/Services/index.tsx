@@ -16,7 +16,7 @@ export function Services() {
 					{texts.services.headingLine2} {''}
 					<span className="text-primary">{texts.services.headingHighlight}</span>?
 				</h2>
-
+        
 				<div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:mt-14 lg:grid-cols-3">
 					{texts.services.items.map(it => (
 						<ServiceCard key={it.title} title={it.title} description={it.description} />

@@ -2,6 +2,7 @@ import React from 'react'
 
 // Components
 import { FiInstagram, FiFacebook, FiYoutube } from 'react-icons/fi'
+
 import { Button } from '@components/ui/button'
 
 // Texts
