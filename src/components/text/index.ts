@@ -23,7 +23,8 @@ export const getTexts = () => ({
         intro_3: ", está listo para recibirte en su consulta para cuidar de tu",
         intro_4: "Salud",
         intro_5: "y la de tus seres queridos.",
-        reservation_text: "Para reservar una cita presiona el botón!"
+        reservation_text: "Para reservar una cita presiona el botón!",
+        reserveLabel: "Reserva de citas"
     },
     statsbar: {
         families: {
@@ -57,4 +58,14 @@ export const getTexts = () => ({
             La escucha activa, el respeto y la empatía son pilares de su atención.`,
         ],
     },
+    contact: {
+        titleLine1: "Entra en contacto con",
+        titleLine2Prefix: "el",
+        doctorFullName: "Doctor Daniel Diaz",
+        address: "Independencia 1234 CABA",
+        email: "info@doctordanieldiaz.com.ar",
+        buttonLabel: "Escriba sus consultas",
+        altDoctor: "Imagen del doctor",
+      }
+      
 })

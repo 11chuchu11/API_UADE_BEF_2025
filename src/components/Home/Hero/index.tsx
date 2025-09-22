@@ -1,4 +1,4 @@
-import { ReserveButton } from "../../ui/buttons/ReserveButton";
+import { ActionButton } from "../../ui/buttons/ActionButton";
 import { getTexts } from "../../text";
 type Props = {
   doctorName?: string;
@@ -39,7 +39,9 @@ export function HeroDoctor({
             <p className="mt-5 text-slate-700">{texts.hero.reservation_text}</p>
 
             <div className="mt-6">
-              <ReserveButton />
+              <ActionButton>
+                {texts.hero.reserveLabel}
+              </ActionButton>            
             </div>
           </div>
 
