@@ -7,7 +7,8 @@ export const getTexts = () => ({
             link_3: "Servicios",
             link_4: "Citas"
         },
-        text_login: "login"
+        text_login: "login",
+        text_logout: "cerrar sesión"
     },
     footer: {
         text_name_doctor: "Dr Daniel Diaz",
