@@ -2,7 +2,8 @@ import '@/styles/app.css'
 
 import * as React from 'react'
 import { Links, Meta, Scripts, ScrollRestoration } from 'react-router'
-import AppLayout from './components/layout/AppLayout'
+import AppLayout from '@/components/layout/AppLayout'
+import { DataProvider } from '@/context/DataProvider'
 
 export function Layout({ children }: { children: React.ReactNode }) {
 	return (
@@ -14,7 +15,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body>
-				{children}
+				<DataProvider>{children}</DataProvider>
 				<ScrollRestoration />
 				<Scripts />
 			</body>
