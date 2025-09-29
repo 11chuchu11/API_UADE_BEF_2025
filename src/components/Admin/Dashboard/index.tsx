@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Card } from "@components/ui/card";
 import { getTextsAdmin } from "../text";
-import type { Appointment } from "./types";
+import type { Appointment, AppointmentActions} from "./types";
 import { AppointmentRow } from "./AppointmentRow";
 import { cn } from "@/lib/utils";
 
 type Props = {
   items: Appointment[];
   className?: string;
-};
+} & AppointmentActions;
 
-export const Dashboard: React.FC<Props> = ({ items, className }) => {
+export const Dashboard: React.FC<Props> = ({ items, className, onConfirm, onCancel }) => {
   const t = getTextsAdmin();
 
   return (
@@ -27,7 +27,7 @@ export const Dashboard: React.FC<Props> = ({ items, className }) => {
 
         <div className="px-5 pb-2 divide-y divide-secondary">
           {items.map((a) => (
-            <AppointmentRow key={a.id} appt={a} />
+            <AppointmentRow key={a.id} appt={a} onConfirm={onConfirm} onCancel={onCancel}/>
           ))}
         </div>
       </Card>

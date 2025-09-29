@@ -9,3 +9,8 @@ export type Appointment = {
   time: string; 
   status: AppointmentStatus;
 };
+
+export type AppointmentActions = {
+    onConfirm?: (appt: Appointment) => void;
+    onCancel?: (appt: Appointment) => void;
+  };
