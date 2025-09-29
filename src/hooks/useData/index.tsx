@@ -2,7 +2,7 @@ import React from 'react'
 
 import { DataContext } from '@/context/DataProvider'
 
-const useData = () => {
+export const useData = () => {
   const context = React.useContext(DataContext)
   if (!context) {
     throw new Error('useData must be used within a DataProvider')
@@ -18,4 +18,3 @@ const useData = () => {
   return { data: context.data, updateData }
 }
 
-export default useData
