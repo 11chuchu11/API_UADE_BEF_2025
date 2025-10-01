@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Button } from "@components/ui/buttons/button"; // asegúrate del path correcto
+import { Button } from "@components/ui/buttons/button"; 
 import { cn } from "@/lib/utils";
 
-// Toma las props del Button de shadcn (incluye onClick, disabled, asChild, etc.)
 type ActionButtonProps = React.ComponentProps<typeof Button> & {
   icon?: React.ReactNode;
 };
@@ -13,7 +12,7 @@ export function ActionButton({
   className,
   size = "lg",
   variant = "brand",
-  ...rest // <- reenvía onClick y cualquier otra prop
+  ...rest 
 }: ActionButtonProps) {
   return (
     <Button
