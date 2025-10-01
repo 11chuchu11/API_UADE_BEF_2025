@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { getTexts } from "../Home/text";
 import { getTextsAdmin } from "../Admin/text";
 import { useNavigate } from "react-router";
-import { useHeaderVariant } from "@/hooks/useHeaderVariant";
+import { useHeaderVariant } from "@/Hooks/useHeaderVariant/useHeaderVariant";
 import { HamburgerButton } from "../ui/hamburguer"; 
 import { MobileMenu } from "@components/layout/MobileMenu";
 

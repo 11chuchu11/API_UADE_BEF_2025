@@ -2,7 +2,7 @@ import { useLocation } from "react-router";
 
 type Variant = "public" | "admin";
 
-export function useHeaderVariant() {
+export const useHeaderVariant = () => {
   const { pathname } = useLocation();
   const variant: Variant =
     pathname === "/admin" || pathname.startsWith("/admin") ? "admin" : "public";
