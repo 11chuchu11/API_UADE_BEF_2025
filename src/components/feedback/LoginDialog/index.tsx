@@ -1,4 +1,7 @@
+// Hooks
 import { useNavigate } from "react-router";
+
+// Components
 import {
   Dialog,
   DialogContent,
