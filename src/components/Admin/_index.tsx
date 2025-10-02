@@ -1,6 +1,8 @@
+// src/app/admin/page.tsx (o donde tengas AdminPage)
 import * as React from "react";
-import { Dashboard } from "@components/Admin/Dashboard"
+import { Dashboard } from "@components/Admin/Dashboard";
 import type { Appointment } from "@components/Admin/Dashboard/types";
+import { useData } from "@/Hooks/useData";
 
 const INITIAL: Appointment[] = [
   { id: "1", patient: "Rolando Gonzales", phone: "+54922134569", insurance: "PAMI",  date: "30/09/25", time: "11:30 am", status: "requested" },
@@ -9,24 +11,35 @@ const INITIAL: Appointment[] = [
 ];
 
 export default function AdminPage() {
-  const [items, setItems] = React.useState<Appointment[]>(INITIAL);
+  const { data, updateData } = useData();
+  const items = (data?.appointments as Appointment[]) ?? [];
+
+  // Semilla inicial solo si está vacío el store
+  const seededRef = React.useRef(false);
+  React.useEffect(() => {
+    if (!seededRef.current && items.length === 0) {
+      updateData({ appointments: INITIAL });
+      seededRef.current = true;
+    }
+  }, [items.length, updateData]);
 
   const handleConfirm = (appt: Appointment) => {
-    setItems((prev) =>
-      prev.map((a) => (a.id === appt.id ? { ...a, status: "confirmed" } : a))
-    );
+    updateData({
+      appointments: items.map((a) =>
+        a.id === appt.id ? { ...a, status: "confirmed" } : a
+      ),
+    });
   };
 
   const handleCancel = (appt: Appointment) => {
-    // demo: simplemente eliminamos la cita (o podrías pasarla a "requested")
-    setItems((prev) => prev.filter((a) => a.id !== appt.id));
+    updateData({
+      appointments: items.filter((a) => a.id !== appt.id),
+    });
   };
 
   return (
-    <>
-      <main className="min-h-screen bg-secondary pt-20 pb-16">
-        <Dashboard items={items} onConfirm={handleConfirm} onCancel={handleCancel}/>
-      </main>
-    </>
+    <main className="min-h-screen bg-secondary pt-20 pb-16">
+      <Dashboard items={items} onConfirm={handleConfirm} onCancel={handleCancel} />
+    </main>
   );
 }

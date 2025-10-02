@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { Button } from "@components/ui/button";
-import { LoginDialog } from "../feedback/LoginDialog";
+import { LoginDialog } from "@/components/Home/feedback/LoginDialog";
 import { cn } from "@/lib/utils";
 import { getTexts } from "../Home/text";
 import { getTextsAdmin } from "../Admin/text";

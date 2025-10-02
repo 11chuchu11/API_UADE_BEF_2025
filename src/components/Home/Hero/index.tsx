@@ -1,6 +1,5 @@
 // Components
-import { ActionButton } from "@components/ui/buttons/ActionButton";
-
+import { ReserveCta } from "./ReserveCta";
 // Texts
 import { getTexts } from "../text";
 
@@ -40,7 +39,7 @@ export function HeroDoctor({ doctorName = 'Daniel ', doctorSurname = 'Diaz', pic
 						<p className="mt-5 text-foreground">{texts.hero.reservation_text}</p>
 
 						<div className="mt-6">
-							<ActionButton>{texts.hero.reserveLabel}</ActionButton>
+							<ReserveCta/>
 						</div>
 					</div>
 
@@ -57,7 +56,6 @@ export function HeroDoctor({ doctorName = 'Daniel ', doctorSurname = 'Diaz', pic
 				</div>
 			</div>
 
-			{/* <div className="absolute inset-x-0 bottom-0 h-6 bg-white z-0" />  ← eliminado */}
 		</section>
 	)
 }

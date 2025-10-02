@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@components/ui/dialog";
-import { LoginForm } from "@components/forms/LoginForm";
+import { LoginForm } from "@/components/Home/forms/LoginForm";
 
 type LoginDialogProps = {
   open: boolean;
