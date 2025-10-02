@@ -29,7 +29,6 @@ import {
 } from "@components/ui/select";
 import { Calendar } from "@components/ui/calendar";
 
-// tipos (se visualiza luego en el Dashboard)
 import type { Appointment } from "@components/Admin/Dashboard/types";
 
 // ========= helpers/const =========
