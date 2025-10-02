@@ -14,3 +14,4 @@ export type AppointmentActions = {
     onConfirm?: (appt: Appointment) => void;
     onCancel?: (appt: Appointment) => void;
   };
+

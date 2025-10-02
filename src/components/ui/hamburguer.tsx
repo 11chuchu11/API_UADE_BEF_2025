@@ -1,3 +1,4 @@
+// components/ui/hamburguer.tsx
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -5,9 +6,26 @@ type Props = {
   onClick: () => void;
   className?: string;
   label?: string;
+  scrolled?: boolean;
+  barsTopClass?: string;
+  barsScrolledClass?: string;
+  barsOpenClass?: string;
 };
 
-export function HamburgerButton({ open, onClick, className, label = "Abrir menú" }: Props) {
+export function HamburgerButton({
+  open,
+  onClick,
+  className,
+  label = "Abrir menú",
+  scrolled = false,
+  barsTopClass = "bg-primary",
+  barsScrolledClass = "bg-background",
+  barsOpenClass,
+}: Props) {
+  const baseColor = scrolled ? barsScrolledClass : barsTopClass;
+  const barColor = open ? (barsOpenClass ?? baseColor): baseColor;
+  const timing = "duration-1000 ease-in-out";
+
   return (
     <button
       type="button"
@@ -16,27 +34,25 @@ export function HamburgerButton({ open, onClick, className, label = "Abrir menú
       onClick={onClick}
       className={cn(
         "relative inline-flex h-10 w-10 items-center justify-center rounded-md",
-        "transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
+        "transition-all hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
+        timing,
         className
       )}
     >
-      <span
-        className={cn(
-          "absolute block h-[2px] w-6 bg-current transition-transform duration-300",
-          open ? "translate-y-0 rotate-45" : "-translate-y-2"
-        )}
+      <span className={cn(
+        "absolute block h-[2px] w-6 transition-transform duration-300",
+        barColor,
+        open ? "translate-y-0 rotate-45" : "-translate-y-2")}
       />
-      <span
-        className={cn(
-          "absolute block h-[2px] w-6 bg-current transition-opacity duration-300",
-          open ? "opacity-0" : "opacity-100"
-        )}
+      <span className={cn(
+        "absolute block h-[2px] w-6 transition-opacity duration-300",
+        barColor,
+        open ? "opacity-0" : "opacity-100")}
       />
-      <span
-        className={cn(
-          "absolute block h-[2px] w-6 bg-current transition-transform duration-300",
-          open ? "translate-y-0 -rotate-45" : "translate-y-2"
-        )}
+      <span className={cn(
+        "absolute block h-[2px] w-6 transition-transform duration-300",
+        barColor,
+        open ? "translate-y-0 -rotate-45" : "translate-y-2")}
       />
     </button>
   );

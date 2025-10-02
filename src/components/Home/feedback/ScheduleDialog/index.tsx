@@ -31,7 +31,6 @@ import {
   
           <div className="h-full overflow-y-auto px-6 pb-6 md:px-8 md:pb-8">
             <ScheduleForm
-              showCancel={true}
               onCancel={() => onOpenChange(false)}
               onSuccess={() => {
                 onOpenChange(false);

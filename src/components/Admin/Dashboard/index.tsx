@@ -16,7 +16,7 @@ export const Dashboard: React.FC<Props> = ({ items, className, onConfirm, onCanc
   return (
     <section className={cn("mx-auto max-w-6xl px-6 lg:px-8", className)}>
       <div className="mb-6 mt-10">
-        <h1 className="text-4xl font-extrabold tracking-tight text-foreground">{t.dahsboard.title}</h1>
+        <h2 className="text-4xl font-extrabold tracking-tight text-foreground">{t.dahsboard.title}</h2>
         <p className="mt-2 text-sm text-primary font-bold">{t.dahsboard.subtitle}</p>
       </div>
 

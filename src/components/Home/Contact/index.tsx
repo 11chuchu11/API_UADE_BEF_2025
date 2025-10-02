@@ -2,15 +2,16 @@
 import { MapPin, Mail } from "lucide-react"
 import { ActionButton } from "@components/ui/buttons/ActionButton";
 import { FaWhatsapp } from "react-icons/fa";
+import doctorPortrait from '@/assets/contactDoctor.png'
 
 // Texts
 import { getTexts } from "../text";
 
-export function ContactDoctor({ photoSrc, className }: { photoSrc?: string; className?: string }) {
+export function ContactDoctor({ photoSrc = doctorPortrait, className }: { photoSrc?: string; className?: string }) {
 	const texts = getTexts()
 
 	return (
-		<section className={className ? `bg-background ${className}` : 'bg-background'}>
+		<section id='contact'  className={className ? `bg-background scroll-mt-24 ${className}` : 'scroll-mt-24 bg-background'}>
 			<div className="mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py-24">
 				<div className="grid grid-cols-1 items-center gap-1 lg:grid-cols-2">
 					<div>
@@ -42,12 +43,12 @@ export function ContactDoctor({ photoSrc, className }: { photoSrc?: string; clas
 						</div>
 					</div>
 
-					<div className="flex justify-center lg:justify-end">
+					<div className="flex justify-center mt-9 lg:justify-end">
 						{photoSrc ? (
 							<img
 								src={photoSrc}
 								alt="Imagen del doctor"
-								className="h-auto w-[28rem] max-w-full object-contain drop-shadow-xl"
+								className="h-auto w-[33rem] max-w-full object-contain drop-shadow-xl"
 								loading="lazy"
 							/>
 						) : (

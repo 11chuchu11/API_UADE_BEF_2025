@@ -3,6 +3,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+html { scroll-behavior: smooth; }
 
 @theme inline {
   /* Tipografía */

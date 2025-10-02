@@ -2,6 +2,7 @@
 import { ReserveCta } from "./ReserveCta";
 // Texts
 import { getTexts } from "../text";
+import doctorPortrait from '@/assets/doctorHero.png'
 
 type Props = {
 	doctorName?: string
@@ -9,13 +10,13 @@ type Props = {
 	pictureSrc?: string
 }
 
-export function HeroDoctor({ doctorName = 'Daniel ', doctorSurname = 'Diaz', pictureSrc = '/assets/doctor.png' }: Props) {
+
+export function HeroDoctor({ doctorName = 'Daniel ', doctorSurname = 'Diaz', pictureSrc = doctorPortrait }: Props) {
 	const texts = getTexts()
 	return (
-		<section className="relative overflow-hidden bg-secondary pt-6 pb-12 lg:pb-16">
-			<div className="mx-auto mt-12 mb-10 max-w-7xl px-6 lg:px-8">
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center py-16 lg:py-24">
-					{/* Texto */}
+		<section id="home" className="relative overflow-hidden bg-secondary ">
+			<div className="mx-auto mt-25 max-w-7xl px-6 lg:px-8">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center py-6 lg:py-20">
 					<div>
 						<div className="h-1 w-16 bg-primary rounded-full mb-6" />
 						<p className="text-primary font-semibold tracking-wide uppercase text-sm">{texts.hero.welcome}</p>
@@ -39,7 +40,7 @@ export function HeroDoctor({ doctorName = 'Daniel ', doctorSurname = 'Diaz', pic
 						<p className="mt-5 text-foreground">{texts.hero.reservation_text}</p>
 
 						<div className="mt-6">
-							<ReserveCta/>
+							<ReserveCta />
 						</div>
 					</div>
 
@@ -48,7 +49,7 @@ export function HeroDoctor({ doctorName = 'Daniel ', doctorSurname = 'Diaz', pic
 							<img
 								src={pictureSrc}
 								alt={`Foto del Dr. ${doctorName}`}
-								className="w-full h-auto object-contain drop-shadow-xl"
+								className="w-full h-[25rem] xs:h-[30rem] object-contain drop-shadow-xl"
 								loading="eager"
 							/>
 						</div>

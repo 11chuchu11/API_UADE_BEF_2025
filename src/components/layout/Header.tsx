@@ -4,9 +4,9 @@ import { LoginDialog } from "@/components/Home/feedback/LoginDialog";
 import { cn } from "@/lib/utils";
 import { getTexts } from "../Home/text";
 import { getTextsAdmin } from "../Admin/text";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 import { useHeaderVariant } from "@/Hooks/useHeaderVariant/useHeaderVariant";
-import { HamburgerButton } from "../ui/hamburguer"; 
+import { HamburgerButton } from "../ui/hamburguer";
 import { MobileMenu } from "@components/layout/MobileMenu";
 
 const Header: React.FC = () => {
@@ -30,10 +30,10 @@ const Header: React.FC = () => {
 
   const navItems = useMemo(
     () => [
-      texts.header.navbar.link_1,
-      texts.header.navbar.link_2,
-      texts.header.navbar.link_3,
-      texts.header.navbar.link_4,
+      { label: texts.header.navbar.link_1, to: "/#home" },
+      { label: texts.header.navbar.link_2, to: "/#about" },
+      { label: texts.header.navbar.link_3, to: "/#services" },
+      { label: texts.header.navbar.link_4, to: "/#contact" },
     ],
     [texts.header.navbar]
   );
@@ -80,10 +80,10 @@ const Header: React.FC = () => {
         <div className="hidden lg:block">
           {center.kind === "nav" ? (
             <nav className="flex items-center gap-24">
-              {navItems.map((txt, i) => (
-                <a key={i} href="#home" className={navItemClass(scrolled)}>
-                  {txt}
-                </a>
+              {navItems.map((item, i) => (
+                <Link key={i} to={item.to} className={navItemClass(scrolled)}>
+                  {item.label}
+                </Link>
               ))}
             </nav>
           ) : (
@@ -111,12 +111,17 @@ const Header: React.FC = () => {
 
           <HamburgerButton
             open={mobileOpen}
-            onClick={() => setMobileOpen((v) => !v)}
+            onClick={() => setMobileOpen(v => !v)}
+            scrolled={scrolled}
+            barsTopClass="bg-primary"
+            barsScrolledClass="bg-background"
+            barsOpenClass="bg-background"
             className={cn(
               "lg:hidden",
               scrolled ? "text-primary-foreground" : isAdmin ? "text-primary" : "text-primary-foreground"
             )}
           />
+
         </div>
       </div>
 

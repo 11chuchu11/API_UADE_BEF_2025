@@ -72,7 +72,7 @@ export const getTexts = () => ({
         sectionLabel: "Servicios",
         headingLine1: "¿Cómo podemos ayudarte",
         headingLine2: "a",
-        headingHighlight: "sentirse mejor",
+        headingHighlight: "sentirte mejor",
         items: [
             {
                 title: "Atención médica",
