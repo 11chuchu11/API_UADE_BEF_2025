@@ -12,8 +12,8 @@ export const HomeView = () => {
 			<section className="relative z-20 mx-auto max-w-7xl px-6 lg:px-8 -mt-14 lg:-mt-20 mb-12">
 				<StatsBar />
 			</section>
-			<Services />
 			<AboutMe />
+			<Services />
 			<ContactDoctor />
 		</>
 	)

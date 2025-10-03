@@ -13,7 +13,7 @@ export function AboutMe({ name = 'Daniel', surname = 'Diaz', photoSrc = doctorPo
 	const texts = getTexts()
 
 	return (
-		<section id="about" className={['bg-secondary scroll-mt-40', className].filter(Boolean).join(' ')}>
+		<section id="about" className={['bg-background scroll-mt-20', className].filter(Boolean).join(' ')}>
 			<div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 lg:grid-cols-2 lg:px-8 lg:py-24">
 				<div className="flex justify-center order-2 lg:order-1">
 					{photoSrc ? (
