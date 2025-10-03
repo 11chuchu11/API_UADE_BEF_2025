@@ -7,7 +7,7 @@ import { getTexts } from '../text'
 export function Services() {
 	const texts = getTexts()
 	return (
-		<section id="services" className="bg-background scroll-mt-2">
+		<section id="services" className="bg-secondary scroll-mt-2">
 			<div className="mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py">
 				<p className="text-center uppercase font-bold text-primary max-w-7xl px-6 lg:px-8 py-11 lg:py ">{texts.services.sectionLabel}</p>
 				<h2 className="mt-3 text-center text-3xl font-extrabold leading-tight text-foreground md:text-4xl">
