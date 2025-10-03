@@ -10,8 +10,8 @@ export const useHeaderVariant = () => {
   if (variant === "admin") {
     return {
       variant,
-      headerAtTop: "bg-secondary text-white px-20 py-4",
-      headerScrolled: "bg-primary text-white px-20 py-4 shadow-lg",
+      headerAtTop: "bg-secondary",
+      headerScrolled: "bg-primary shadow-lg",
       titleAtTop: "text-primary",
       titleScrolled: "text-background",
       center: { kind: "title" as const},
@@ -21,8 +21,8 @@ export const useHeaderVariant = () => {
 
   return {
     variant,
-    headerAtTop: "bg-secondary text-white px-20 py-4",
-    headerScrolled: "bg-primary text-white px-20 py-4 shadow-lg",
+    headerAtTop: "bg-secondary ",
+    headerScrolled: "bg-primary shadow-lg",
     titleAtTop: "text-primary",
     titleScrolled: "text-background",
     center: { kind: "nav" as const },

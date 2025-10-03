@@ -13,11 +13,11 @@ const INITIAL_INSURANCES: Insurance[] = [
 export const DataProvider = (props: PropsWithChildren) => {
   const [data, setData] = useState<{
     login: { user: string; password: string };
-    appointments: Appointment[];
+        appointments: Appointment[];
     insurances: Insurance[];
   }>({
     login: { user: "doctor", password: "12345" },
-    appointments: [],
+        appointments: [],
     insurances: INITIAL_INSURANCES,
   });
 
