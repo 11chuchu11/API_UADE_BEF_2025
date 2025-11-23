@@ -7,8 +7,8 @@ import { Input } from '@components/ui/input'
 import { Button } from '@components/ui/button'
 import { setCookie } from '@/utils/cookies'
 import { COOKIES } from '@/utils/constants'
-
-const DEMO = { user: 'doctor', pass: '123456' }
+import { useLogin } from '@/Hooks/requests/useLogin'
+import { Spinner } from '@/components/ui/spinner'
 
 type LoginFormProps = {
 	onSuccess: () => void
@@ -19,18 +19,22 @@ export function LoginForm({ onSuccess, onCancel }: LoginFormProps) {
 	const [user, setUser] = useState('')
 	const [pass, setPass] = useState('')
 	const [error, setError] = useState<string | null>(null)
+	const { authUser, loading } = useLogin()
 
-	function handleSubmit(e: React.FormEvent) {
+	async function handleSubmit(e: React.FormEvent) {
 		e.preventDefault()
-        const { NAME, EXPIRATION, VALUE } = COOKIES.IS_LOGGED
-        
-		if (user === DEMO.user && pass === DEMO.pass) {
-			setError(null)
-			setCookie(NAME, VALUE, EXPIRATION)
-			onSuccess()
-		} else {
-			setError('Usuario o contraseña incorrectos.')
-		}
+		const { NAME, EXPIRATION } = COOKIES.ACCESS_TOKEN
+		await authUser(
+			{ username: user, password: pass },
+			data => {
+				setError(null)
+				setCookie(NAME, data.token, EXPIRATION)
+				onSuccess()
+			},
+			() => {
+				setError('Usuario o contraseña incorrectos.')
+			}
+		)
 	}
 
 	return (
@@ -56,12 +60,13 @@ export function LoginForm({ onSuccess, onCancel }: LoginFormProps) {
 			{error && <p className="text-sm text-rose-600">{error}</p>}
 
 			<div className="mt-4 flex items-center justify-center gap-6">
-				<Button type="button" variant="brandOutline" size="pill" className="uppercase tracking-wide" onClick={onCancel}>
+				<Button type="button" variant="brandOutline" size="pill" className="uppercase tracking-wide" onClick={onCancel} disabled={loading}>
 					Cancelar
 				</Button>
 
-				<Button type="submit" variant="brand" size="pill" className="uppercase tracking-wide">
-					Ingresar
+				<Button type="submit" variant="brand" size="pill" className="uppercase tracking-wide" disabled={loading}>
+					{!loading && 'Ingresar'}
+					{loading && <Spinner />}
 				</Button>
 			</div>
 		</form>

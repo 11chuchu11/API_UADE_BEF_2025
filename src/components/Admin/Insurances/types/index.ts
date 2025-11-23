@@ -1,5 +1,5 @@
 export type Insurance = {
-    id: string;
+    id?: string;
     name: string;
     description?: string;
     active: boolean;

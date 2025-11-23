@@ -1,17 +1,18 @@
 export type AppointmentStatus = "requested" | "confirmed";
 
 export type Appointment = {
-  id: string;
+  id?: string;
   patient: string;
   phone: string;
-  insurance: string;
+  email: string;
+  insurance: {id: number, name: string, description:string, active: boolean};
   date: string;
   time: string; 
-  status: AppointmentStatus;
+  state: AppointmentStatus;
 };
 
 export type AppointmentActions = {
-    onConfirm?: (appt: Appointment) => void;
-    onCancel?: (appt: Appointment) => void;
+    onConfirm?: (appt: Appointment, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void;
+    onCancel?: (appt: Appointment, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void;
   };
 

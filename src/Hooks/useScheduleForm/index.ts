@@ -11,6 +11,8 @@ import {
 } from "@/lib/time";
 
 import { isValidEmail, isValidName, isValidPhone } from "@/lib/validators";
+import { combineDateAndTimeToISO } from "@/utils/combine-date-time"
+import { useGenerateAppointment } from "../requests/useGenerateAppointment"
 
 type Errors = Partial<Record<
   "nombre" | "apellido" | "telefono" | "email" | "insurance" | "date" | "time",
@@ -19,13 +21,14 @@ type Errors = Partial<Record<
 
 export function useScheduleForm(onSuccess?: () => void) {
   const { handleChange, formData } = useForm({ debounceTime: 300 });
-  const { data, updateData } = useData();
+  const { data } = useData();
 
   const [date, setDate] = useState<Date | undefined>(nextBusinessDay());
   const [insurance, setInsurance] = useState<string>("");
   const [time, setTime] = useState<string>("");
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
+  const {generateAppointment} = useGenerateAppointment()
 
   const activeInsurances = useMemo(
     () => (data?.insurances ?? []).filter((i: any) => i?.active),
@@ -121,19 +124,18 @@ export function useScheduleForm(onSuccess?: () => void) {
     const fullName = [formData?.nombre?.trim(), formData?.apellido?.trim()]
       .filter(Boolean)
       .join(" ");
+    
+    const selectedInsuranceData = data.insurances.find((i:any) => i.name === insurance)
 
-    const appt: Appointment = {
-      id: crypto.randomUUID(),
+    const appt = {
       patient: fullName || "Paciente",
       phone: (formData?.telefono || "").trim(),
-      insurance,
-      date: format(date, "dd/MM/yy"),
-      time,
-      status: "requested",
+      email: (formData?.email || "").trim(),
+      insurance:selectedInsuranceData,
+      date_time: combineDateAndTimeToISO(date,time),
+      state: "requested",
     };
-
-    const prev = (data?.appointments as Appointment[]) ?? [];
-    updateData({ appointments: [...prev, appt] });
+    await generateAppointment(appt)
 
     setSubmitting(false);
     onSuccess?.();

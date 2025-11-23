@@ -1,20 +1,27 @@
-import * as React from "react";
-import { ActionButton } from "@components/ui/buttons/ActionButton";
-import { ScheduleDialog } from "@/components/Home/feedback/ScheduleDialog";
+import { useState } from 'react'
+import { ActionButton } from '@components/ui/buttons/ActionButton'
+import { ScheduleDialog } from '@/components/Home/feedback/ScheduleDialog'
+import { Spinner } from '@/components/ui/spinner'
+import { useGetAllAppointments } from '@/Hooks/requests/useGetAllAppointments'
 
 export function ReserveCta() {
-  const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = useState(false)
+	const { fetchAllAppointments, loading } = useGetAllAppointments(() => { 
+		setOpen(true)
+	})
 
-  return (
-    <>
-      <ActionButton variant="brand" size="lg" onClick={() => setOpen(true)}>
-        Reserva de citas
-      </ActionButton>
+	const onAction = async () => {
+		await fetchAllAppointments()
+	}
 
-      <ScheduleDialog
-        open={open}
-        onOpenChange={setOpen}
-      />
-    </>
-  );
+	return (
+		<>
+			<ActionButton variant="brand" size="lg" onClick={() => onAction()} disabled={loading}>
+				{loading && <Spinner />} Reserva de citas
+			</ActionButton>
+
+			<ScheduleDialog open={open} onOpenChange={setOpen} />
+		</>
+	)
 }
+

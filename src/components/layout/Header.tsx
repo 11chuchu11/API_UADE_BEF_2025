@@ -37,7 +37,7 @@ const Header: React.FC = () => {
 	}, [])
 
 	const handleLogout = () => {
-		deleteCookie(COOKIES.IS_LOGGED.NAME)
+		deleteCookie(COOKIES.ACCESS_TOKEN.NAME)
 		navigate('/')
 	}
 

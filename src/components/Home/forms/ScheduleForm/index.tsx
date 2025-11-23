@@ -37,7 +37,7 @@ export const ScheduleForm: React.FC<Props> = ({ onCancel, onSuccess, showCancel 
         <div className="mt-4">
           <InsuranceSelect
             value={insurance}
-            onChange={(v) => { setInsurance(v); setFieldError("insurance"); }}
+            onChange={(v) => { console.log(v),setInsurance(v); setFieldError("insurance"); }}
             error={errors.insurance}
             items={activeInsurances}
           />
