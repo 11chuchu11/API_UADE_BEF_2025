@@ -25,7 +25,7 @@ export const Dashboard: React.FC<Props> = ({ items, className, onConfirm, onCanc
           <p className="text-md font-semibold text-primary/100">{t.dahsboard.tableTitle}</p>
         </div>
 
-        <div className="px-5 pb-2 divide-y divide-secondary">
+        <div className="px-5 pb-2 divide-y divide-secondary overflow-y-scroll max-h-[400px]">
           {items.map((a) => (
             <AppointmentRow key={a.id} appt={a} onConfirm={onConfirm} onCancel={onCancel}/>
           ))}

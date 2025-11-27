@@ -69,7 +69,7 @@ export const InsurancesSection: React.FC<Props> = ({ className }) => {
 					<p className="text-sm sm:text-md font-semibold text-primary/100">Configuración de las Obras Sociales</p>
 				</div>
 
-				<div className="px-4 sm:px-5 pb-2 divide-y divide-secondary">
+				<div className="px-4 sm:px-5 pb-2 divide-y divide-secondary overflow-y-scroll max-h-[400px]">
 					{items.map(it => (
 						<InsuranceRow key={it.id} item={it} onToggle={handleToggle} onDelete={handleDelete} onSave={handleSave} />
 					))}

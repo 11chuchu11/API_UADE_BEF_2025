@@ -11,15 +11,22 @@ import {
 } from "@/lib/time";
 
 import { isValidEmail, isValidName, isValidPhone } from "@/lib/validators";
-import { combineDateAndTimeToISO } from "@/utils/combine-date-time"
-import { useGenerateAppointment } from "../requests/useGenerateAppointment"
+import { combineDateAndTimeToISO } from "@/utils/combine-date-time";
+import { useGenerateAppointment } from "../requests/useGenerateAppointment";
 
 type Errors = Partial<Record<
   "nombre" | "apellido" | "telefono" | "email" | "insurance" | "date" | "time",
   string
 >>;
 
-export function useScheduleForm(onSuccess?: () => void) {
+type SubmitResult = {
+  success: boolean;
+  status?: number;
+  data?: any;
+  error?: string;
+};
+
+export function useScheduleForm(onSuccess?: (data?: any) => void) {
   const { handleChange, formData } = useForm({ debounceTime: 300 });
   const { data } = useData();
 
@@ -28,7 +35,7 @@ export function useScheduleForm(onSuccess?: () => void) {
   const [time, setTime] = useState<string>("");
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
-  const {generateAppointment} = useGenerateAppointment()
+  const { generateAppointment } = useGenerateAppointment();
 
   const activeInsurances = useMemo(
     () => (data?.insurances ?? []).filter((i: any) => i?.active),
@@ -114,31 +121,74 @@ export function useScheduleForm(onSuccess?: () => void) {
     return Object.keys(e).length === 0;
   }
 
-  async function onSubmit(ev: React.FormEvent) {
+  async function onSubmit(ev: React.FormEvent): Promise<SubmitResult> {
     ev.preventDefault();
-    if (!validate()) return;
-    if (!date || !time) return;
+
+    if (!validate()) {
+      return { success: false, error: "validation_failed" };
+    }
+    if (!date || !time) {
+      return { success: false, error: "missing_fields" };
+    }
 
     setSubmitting(true);
 
     const fullName = [formData?.nombre?.trim(), formData?.apellido?.trim()]
       .filter(Boolean)
       .join(" ");
-    
-    const selectedInsuranceData = data.insurances.find((i:any) => i.name === insurance)
+
+    const selectedInsuranceData = data.insurances.find((i: any) => i.name === insurance);
 
     const appt = {
       patient: fullName || "Paciente",
       phone: (formData?.telefono || "").trim(),
       email: (formData?.email || "").trim(),
-      insurance:selectedInsuranceData,
-      date_time: combineDateAndTimeToISO(date,time),
+      insurance: selectedInsuranceData,
+      date_time: combineDateAndTimeToISO(date, time),
       state: "requested",
     };
-    await generateAppointment(appt)
 
-    setSubmitting(false);
-    onSuccess?.();
+    try {
+      const result: any = await generateAppointment(appt);
+      if (typeof result?.status !== "number") {
+        const resData = result?.data ?? result;
+        setSubmitting(false);
+        onSuccess?.(resData);
+        return { success: true, status: 201, data: resData };
+      }
+
+      const status = result?.status;
+
+      if (status === 201) {
+        let resData: any;
+
+        if (result?.json && typeof result.json === "function") {
+          resData = await result.json();
+        } else if (result?.data !== undefined) {
+          resData = result.data;
+        } else {
+          resData = result;
+        }
+
+        setSubmitting(false);
+        onSuccess?.(resData);
+
+        return { success: true, status: 201, data: resData };
+      } else {
+        setSubmitting(false);
+        return {
+          success: false,
+          status,
+          error: "request_failed",
+        };
+      }
+    } catch (error: any) {
+      setSubmitting(false);
+      return {
+        success: false,
+        error: error?.message || "network_error",
+      };
+    }
   }
 
   return {
