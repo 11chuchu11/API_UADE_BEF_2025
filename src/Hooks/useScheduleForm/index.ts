@@ -50,7 +50,7 @@ export function useScheduleForm(onSuccess?: (data?: any) => void) {
 
   const bookedSet = useMemo(() => {
     if (!date) return new Set<number>();
-    const selected = format(date, "dd/MM/yy");
+    const selected = format(date, "dd/MM/yyyy");
     const appts: Appointment[] = (data?.appointments as Appointment[]) ?? [];
     const sameDay = appts.filter((a) => a.date === selected);
     return new Set<number>(sameDay.map((a) => labelToMinutes(a.time)));
