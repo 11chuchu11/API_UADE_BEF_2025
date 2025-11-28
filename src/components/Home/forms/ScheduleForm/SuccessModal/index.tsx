@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 type Props = {
     open: boolean;
     title?: string;
-    message?: string;
+    message?: string | React.ReactNode;
     onClose: () => void;
 };
 

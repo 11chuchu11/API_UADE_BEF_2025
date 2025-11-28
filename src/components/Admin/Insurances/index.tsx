@@ -9,6 +9,7 @@ import { useUpdateActiveInsurance } from '@/Hooks/requests/useUpdateActiveIsuran
 import { useDeleteInsurance } from '@/Hooks/requests/useDeleteInsurance'
 import { useAddInsurance } from '@/Hooks/requests/useAddInsurance'
 import { useUpdateInsurance } from '@/Hooks/requests/useUpdateInsurance'
+import { SuccessModal } from '@/components/Home/forms/ScheduleForm/SuccessModal'
 
 type Props = { className?: string }
 
@@ -19,6 +20,7 @@ export const InsurancesSection: React.FC<Props> = ({ className }) => {
 	const { deleteInsurance } = useDeleteInsurance()
 	const { addInsurance } = useAddInsurance()
 	const { udpateInsurance } = useUpdateInsurance()
+	const [errorOnDelete, setErrorOnDelete] = React.useState(false)
 
 	const upsert = (next: Insurance[]) => updateData({ insurances: next })
 
@@ -35,18 +37,24 @@ export const InsurancesSection: React.FC<Props> = ({ className }) => {
 
 	const handleDelete = async (it: Insurance, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => {
 		setLoading(true)
-		await deleteInsurance(Number(it.id), () => {
-			upsert(items.filter(x => x.id !== it.id))
-		})
+		await deleteInsurance(
+			Number(it.id),
+			() => {
+				upsert(items.filter(x => x.id !== it.id))
+			},
+			() => {
+				setErrorOnDelete(true)
+			}
+		)
 		setLoading(false)
 	}
 
-	const handleSave = async (it: Insurance, setLoading:  React.Dispatch<React.SetStateAction<boolean>>) => {
+	const handleSave = async (it: Insurance, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => {
 		setLoading(true)
-        await udpateInsurance(Number(it.id), it, (insuranceData: any) => {
+		await udpateInsurance(Number(it.id), it, (insuranceData: any) => {
 			upsert(items.map(x => (x.id === it.id ? insuranceData : x)))
-        })
-        setLoading(false)
+		})
+		setLoading(false)
 	}
 
 	const handleAdd = async (it: Insurance, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => {
@@ -77,6 +85,14 @@ export const InsurancesSection: React.FC<Props> = ({ className }) => {
 
 				<AddInsuranceBar onAdd={handleAdd} />
 			</Card>
+			<SuccessModal
+				open={errorOnDelete}
+				onClose={() => {
+					setErrorOnDelete(false)
+				}}
+				title="Ocurrio un error"
+				message="Chequeé no tener citas pendientes con esta obra social"
+			/>
 		</section>
 	)
 }
